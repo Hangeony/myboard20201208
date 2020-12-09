@@ -37,10 +37,10 @@ public class ControllerUsingURI extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		map = new HashMap<>();
-		
+
 		ServletConfig config = getServletConfig();
 		String configFilePath = config.getInitParameter("configFile").trim();
-		
+
 		ServletContext application = getServletContext();
 		String filePath = application.getRealPath(configFilePath);
 
@@ -96,7 +96,7 @@ public class ControllerUsingURI extends HttpServlet {
 		if(handler == null) {
 			handler = new NullHandler();
 		}
-		
+
 		/*
 		int b = 0;
 `	`
@@ -123,7 +123,8 @@ public class ControllerUsingURI extends HttpServlet {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-
-		request.getRequestDispatcher(prefix + view + suffix).forward(request, response);;
+		if(view != null) {
+			request.getRequestDispatcher(prefix + view + suffix).forward(request, response);
+		}
 	}
 }
