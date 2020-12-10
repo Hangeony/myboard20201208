@@ -65,5 +65,28 @@ public class MemberDao {
 		
 	}
 	
+	public void upadte(Connection conn, Member member) throws SQLException{
+		String sql = "UPDATE member "
+				+ "SET name=?, password=? "
+				+ "WHERE memberid=? ";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getPassword());
+			pstmt.setString(3, member.getId());
+			
+			pstmt.executeUpdate();
+		}
+	}
+	
+	public void delete(Connection conn, String id) throws SQLException{
+		//삭제 쿼리를 실행
+		System.out.println(id);
+		String sql = "DELETE FROM member "
+					+"WHERE memberid =? ";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+		}
+	}
 
 }
