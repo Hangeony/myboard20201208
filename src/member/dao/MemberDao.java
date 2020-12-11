@@ -80,7 +80,6 @@ public class MemberDao {
 	
 	public void delete(Connection conn, String id) throws SQLException{
 		//삭제 쿼리를 실행
-		System.out.println(id);
 		String sql = "DELETE FROM member "
 					+"WHERE memberid =? ";
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)){
