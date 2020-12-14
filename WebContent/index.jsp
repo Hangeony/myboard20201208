@@ -33,6 +33,7 @@ ${authUser.name }님, 안녕하세요.
 <a href="login.do">[로그아웃]</a>
 <a href="changePwd.do">[비밀번호 변경]</a>
 <a href="removeMember.do">[회원탈퇴]</a>
+<a href="article/list.do">[게시물 보기]</a>
 <a href="article/write.do">[게시물 쓰기]</a>
 </u:isLogin>
 <u:notLogin>
