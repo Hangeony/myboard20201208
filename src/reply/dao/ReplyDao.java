@@ -12,12 +12,6 @@ import reply.model.Reply;
 public class ReplyDao {
 
 	public void insert(Connection conn, String userId, int articleNo, String body) throws SQLException {
-		// 11g
-		/*
-		String sql = "INSERT INTO reply "
-				+ "(replyid, memberid, article_no, body, regdate) "
-				+ "VALUES (reply_seq.nextval, ?, ?, ?, SYSDATE)";
-		*/
 		
 		String sql = "INSERT INTO reply "
 				+ "(memberid, article_no, body, regdate) "
