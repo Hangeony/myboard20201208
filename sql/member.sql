@@ -9,7 +9,10 @@ regdate DATE NOT NULL
 
 SELECT * FROM member;
 SELECT * FROM article;
-SELECT * FROM article_content; 
+SELECT * FROM article_content;
+SELECT * FROM reply;
+SELECT replyid, memberid, article_no, body, regdate FROM reply
+WHERE article_no=103 ORDER BY replyid DESC;
 DELETE FROM member
 WHERE memberid = '123';
 
@@ -30,3 +33,20 @@ content VARCHAR2(4000)
 SELECT COUNT(*) FROM article;
 SELECT *FROM desc article;
 DESC article;
+
+DELETE FROM article WHERE article_no = 24;
+DELETE FROM article_content WHERE article_no = 24;
+commit;
+
+--댓글
+CREATE TABLE reply (
+    replyid NUMBER GENERATED AS IDENTITY,
+    memberid VARCHAR2(50) NOT NULL,
+    article_no NUMBER NOT NULL,
+    body VARCHAR2(1000) NOT NULL,
+    regdate DATE NOT NULL,
+    PRIMARY KEY (replyid)
+);
+
+INSERT INTO reply (memberid, article_no, body, regdate)
+VALUES (' ', 0, ' ', SYSDATE);

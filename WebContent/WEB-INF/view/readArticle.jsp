@@ -42,6 +42,9 @@
 	</td>
 </tr>
 </table>
+<%-- 뎃글 폼 , (로그인 한사람만) --%>
+<u:replyForm articleNo="${articleData.article.number }"/>
+<u:listReply/>
 </div>
 </body>
 </html>
