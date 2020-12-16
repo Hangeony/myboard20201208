@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% request.setCharacterEncoding("utf-8"); %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<u:navbar/>
 <div class="container">
 <h1>${param.name } 님 회원가입이 완료 되셨습니다.</h1>
 </div>
